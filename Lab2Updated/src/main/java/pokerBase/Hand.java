@@ -35,8 +35,9 @@ public class Hand {
 	}
 
 	private void sortHand(ArrayList<Card> hand) {
-		//Should be done
-		// //if the first card is greater than the one following it, needs to be tested
+		// Should be done
+		// //if the first card is greater than the one following it, needs to be
+		// tested
 		// if (hand.get(0).getiCardNbr()>hand.get(1).getiCardNbr()) {
 		// Collections.swap(hand, 0, 1);
 		// }
@@ -226,8 +227,47 @@ public class Hand {
 
 		if (h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank() == h.getCardsInHand()
 				.get(eCardNo.SecondCard.getCardNo()).geteRank()) {
-			isTwoPair = true;
-			hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+			if (h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank() == h.getCardsInHand()
+					.get(eCardNo.FourthCard.getCardNo()).geteRank()) {
+				isTwoPair = true;
+				hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+				hs.setHiHand(h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank().getiRankNbr());
+				hs.setLoHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr());
+				ArrayList<Card> kickers = new ArrayList<Card>();
+				kickers.add(h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()));
+				hs.setKickers(kickers);
+			} else if (h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank() == h.getCardsInHand()
+					.get(eCardNo.FourthCard.getCardNo()).geteRank()) {
+				isTwoPair = true;
+				hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+				hs.setHiHand(h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr());
+				hs.setLoHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr());
+				ArrayList<Card> kickers = new ArrayList<Card>();
+				kickers.add(h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()));
+				hs.setKickers(kickers);
+			}
+		} else if (h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank() == h.getCardsInHand()
+				.get(eCardNo.ThirdCard.getCardNo()).geteRank()) {
+			if (h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank() == h.getCardsInHand()
+					.get(eCardNo.FourthCard.getCardNo()).geteRank()) {
+				isTwoPair = true;
+				hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+				hs.setHiHand(h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr());
+				hs.setLoHand(h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank().getiRankNbr());
+				ArrayList<Card> kickers = new ArrayList<Card>();
+				kickers.add(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()));
+				hs.setKickers(kickers);
+			}
+		}
+		return isTwoPair;
+	}
+
+	public static boolean isHandPair(Hand h, HandScore hs) {
+		boolean isPair = false;
+		if (h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank() == h.getCardsInHand()
+				.get(eCardNo.SecondCard.getCardNo()).geteRank()) {
+			isPair = true;
+			hs.setHandStrength(eHandStrength.Pair.getHandStrength());
 			hs.setHiHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr());
 			hs.setLoHand(0);
 			ArrayList<Card> kickers = new ArrayList<Card>();
@@ -238,8 +278,8 @@ public class Hand {
 
 		} else if (h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank() == h.getCardsInHand()
 				.get(eCardNo.ThirdCard.getCardNo()).geteRank()) {
-			isTwoPair = true;
-			hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+			isPair = true;
+			hs.setHandStrength(eHandStrength.Pair.getHandStrength());
 			hs.setHiHand(h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank().getiRankNbr());
 			hs.setLoHand(0);
 			ArrayList<Card> kickers = new ArrayList<Card>();
@@ -249,8 +289,8 @@ public class Hand {
 			hs.setKickers(kickers);
 		} else if (h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank() == h.getCardsInHand()
 				.get(eCardNo.FourthCard.getCardNo()).geteRank()) {
-			isTwoPair = true;
-			hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+			isPair = true;
+			hs.setHandStrength(eHandStrength.Pair.getHandStrength());
 			hs.setHiHand(h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank().getiRankNbr());
 			hs.setLoHand(0);
 			ArrayList<Card> kickers = new ArrayList<Card>();
@@ -260,22 +300,16 @@ public class Hand {
 			hs.setKickers(kickers);
 		} else if (h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank() == h.getCardsInHand()
 				.get(eCardNo.FourthCard.getCardNo()).geteRank()) {
-			isTwoPair = true;
-			hs.setHandStrength(eHandStrength.TwoPair.getHandStrength());
+			isPair = true;
+			hs.setHandStrength(eHandStrength.Pair.getHandStrength());
 			hs.setHiHand(h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr());
 			hs.setLoHand(0);
 			ArrayList<Card> kickers = new ArrayList<Card>();
 			kickers.add(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()));
 			kickers.add(h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()));
-			kickers.add(h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()));			
+			kickers.add(h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()));
 			hs.setKickers(kickers);
 		}
-		return isTwoPair;
-	}
-
-	public static boolean isHandPair(Hand h, HandScore hs) {
-		boolean isPair = false;
-		// TODO Implement this method
 		return isPair;
 	}
 
