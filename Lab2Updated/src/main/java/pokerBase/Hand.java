@@ -86,7 +86,6 @@ public class Hand {
 	private static boolean isStraight(ArrayList<Card> cards, Card highCard) {
 		boolean bIsStraight = false;
 		// TODO Implement this method
-
 		return bIsStraight;
 	}
 
@@ -187,7 +186,6 @@ public class Hand {
 				.get(eCardNo.ThirdCard.getCardNo()).geteRank()) {
 			isThreeOfAKind = true;
 			hs.setHandStrength(eHandStrength.ThreeOfAKind.getHandStrength());
-			// ???
 			hs.setHiHand(h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr());
 			hs.setLoHand(0);
 			ArrayList<Card> kickers = new ArrayList<Card>();
@@ -199,7 +197,6 @@ public class Hand {
 				.get(eCardNo.FourthCard.getCardNo()).geteRank()) {
 			isThreeOfAKind = true;
 			hs.setHandStrength(eHandStrength.ThreeOfAKind.getHandStrength());
-			// ???
 			hs.setHiHand(h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteRank().getiRankNbr());
 			hs.setLoHand(0);
 			ArrayList<Card> kickers = new ArrayList<Card>();
@@ -314,7 +311,9 @@ public class Hand {
 	}
 
 	public static boolean isHandHighCard(Hand h, HandScore hs) {
-		// TODO Implement this method
+		hs.setHandStrength(eHandStrength.HighCard.getHandStrength());
+		hs.setHiHand(h.getCardsInHand().get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr());
+		hs.setLoHand(0);
 		return true;
 	}
 }
