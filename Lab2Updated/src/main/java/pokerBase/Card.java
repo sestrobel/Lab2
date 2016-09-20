@@ -49,5 +49,4 @@ public class Card  implements Comparable {
 
 	}
 
-	
 }

@@ -16,21 +16,24 @@ public class Hand {
 	private ArrayList<Card> CardsInHand;
 
 	public Hand() {
-		// constructor of hand, not done
+		// constructor of hand
 		this.HandID = UUID.randomUUID();
 		bScored = false;
 	}
 
 	private ArrayList<Card> getCardsInHand() {
+		//getter for cardsinhand
 		return CardsInHand;
 	}
 
 	private void setHandScore(HandScore handScore) {
+		//setter for handscore
 		this.handScore = handScore;
 		bScored = true;
 	}
 
 	public HandScore getHandScore() {
+		//getter for handscore
 		return handScore;
 	}
 
@@ -76,14 +79,25 @@ public class Hand {
 		sortHand(hand);
 	}
 
-	private static boolean isHandFlush(ArrayList<Card> cards) {
+	private static boolean isHandFlush(Hand h) {
 
-		// TODO Implement this method
 		boolean bIsFlush = false;
+
+		if (h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteSuit() == h.getCardsInHand()
+				.get(eCardNo.SecondCard.getCardNo()).geteSuit()
+				&& h.getCardsInHand().get(eCardNo.SecondCard.getCardNo()).geteSuit() == h.getCardsInHand()
+						.get(eCardNo.ThirdCard.getCardNo()).geteSuit()
+				&& h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteSuit() == h.getCardsInHand()
+						.get(eCardNo.FourthCard.getCardNo()).geteSuit()
+				&& h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteSuit() == h.getCardsInHand()
+						.get(eCardNo.FifthCard.getCardNo()).geteSuit()) {
+			bIsFlush = true;
+		}
 		return bIsFlush;
 	}
 
 	private static boolean isStraight(ArrayList<Card> cards, Card highCard) {
+		
 		boolean bIsStraight = false;
 		// TODO Implement this method
 		return bIsStraight;
@@ -178,7 +192,8 @@ public class Hand {
 
 		boolean bIsStraight = false;
 		// TODO Implement this method
-		// Ken
+		//Chang
+		
 		return bIsStraight;
 	}
 
