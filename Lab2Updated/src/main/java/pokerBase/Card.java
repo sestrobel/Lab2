@@ -11,6 +11,7 @@ public class Card  implements Comparable {
 	private eSuit eSuit;
 	private eRank eRank;
 	private int iCardNbr;
+	
 	public Card(pokerEnums.eSuit eSuit, pokerEnums.eRank eRank, int iCardNbr) {
 		super();
 		this.eSuit = eSuit;
