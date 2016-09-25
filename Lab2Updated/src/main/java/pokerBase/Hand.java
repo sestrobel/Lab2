@@ -22,12 +22,10 @@ public class Hand {
 	}
 
 	private ArrayList<Card> getCardsInHand() {
-		// getter for cardsinhand
 		return CardsInHand;
 	}
 
 	private void setHandScore(HandScore handScore) {
-		// setter for handscore
 		this.handScore = handScore;
 		bScored = true;
 	}
@@ -155,7 +153,7 @@ public class Hand {
 				ArrayList<Card> kickers = new ArrayList<Card>();
 				hs.setKickers(kickers);
 				hs.setLoHand(0);
-				if (h.CardsInHand.get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr() == 14 
+				if (h.CardsInHand.get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr() == 14
 						&& h.CardsInHand.get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr() == 2) {
 					hs.setHiHand(h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr());
 				} else {
@@ -207,7 +205,7 @@ public class Hand {
 			hs.setLoHand(h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr());
 			ArrayList<Card> kickers = new ArrayList<Card>();
 			hs.setKickers(kickers);
-			
+
 		} else if (h.getCardsInHand().get(eCardNo.ThirdCard.getCardNo()).geteRank() == h.getCardsInHand()
 				.get(eCardNo.FifthCard.getCardNo()).geteRank()
 				&& h.getCardsInHand().get(eCardNo.FirstCard.getCardNo()).geteRank() == h.getCardsInHand()
@@ -252,7 +250,7 @@ public class Hand {
 			ArrayList<Card> kickers = new ArrayList<Card>();
 			hs.setKickers(kickers);
 			hs.setLoHand(0);
-			if (h.CardsInHand.get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr() == 14 
+			if (h.CardsInHand.get(eCardNo.FifthCard.getCardNo()).geteRank().getiRankNbr() == 14
 					&& h.CardsInHand.get(eCardNo.FirstCard.getCardNo()).geteRank().getiRankNbr() == 2) {
 				hs.setHiHand(h.getCardsInHand().get(eCardNo.FourthCard.getCardNo()).geteRank().getiRankNbr());
 			} else {
