@@ -59,7 +59,5 @@ public class HandScore {
 
 	void setNatural(boolean natural) {
 		Natural = natural;
-	}
-	
-	
+	}	
 }

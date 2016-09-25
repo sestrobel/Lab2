@@ -10,10 +10,6 @@ public class Player {
 	public Player(String strPlayerName)
 	{
 		PlayerID = UUID.randomUUID();
-		this.PlayerName = strPlayerName;
-		
-	}
-	
-	
-	
+		this.PlayerName = strPlayerName;	
+	}	
 }
